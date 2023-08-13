@@ -3,6 +3,7 @@ import soundfile as sf
 import speech_recognition as spr
 import os
 from libs.config import TOKEN
+from background import keep_alive
 
 bot = telebot.TeleBot(TOKEN)
 
@@ -52,4 +53,5 @@ def audio(message):
     os.remove(f'{fileId}.ogg')
     os.remove('output.wav')
 
+keep_alive()
 bot.polling()
